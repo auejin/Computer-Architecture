@@ -24,10 +24,10 @@ This project is based on Project 1: Simple MIPS assembler from *Introduction to 
 
 이 assembler가 지원하는 operator는  다음과 같다.
 
-- **J format : ** j, jal
-- **I format : ** addiu, andi, beq, bne, lui, lw, ori, sltiu, sw
-- **R format : **addu, and, jr, nor, or, sltu, sll, srl, subu
-- **Pseudo Instructions : **la
+- **J format** : j, jal
+- **I format** : Xaddiu, andi, beq, bne, lui, lw, ori, sltiu, sw
+- **R format** : Xaddu, and, jr, nor, or, sltu, sll, srl, subu
+- **Pseudo Instructions** : la
 
 
 
