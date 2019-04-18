@@ -22,7 +22,7 @@ This project is based on Project 2: Building a Simple MIPS Emulator from *Introd
 $ python3 ./mips_emulator.py [-m addr1:addr2] [-d] [-n num_instr] <input file>
 ```
 
-- `-m` : 설정시 pc값, register `$0`~`$31`값들과 함께 메모리 주소 범위(`addr1`~`addr2`)에 있는 내용들도 출력한다. user text segment(0x00400000부터 시작) 및 data segment(0x10000000부터 시작)의 데이터를 읽어올 수 있으며, 각 주소에 할당 되지 않은 값들은 `0x0`을 출력한다. `-m` 미설정시에는 메모리 내용 없이 pc값과 register 값들만 출력된다. `addr1`와 `addr2`는 기본값이 없으므로 `-m `설정을 위해선 반드시 지정되어야 한다.
+- `-m` : 설정시 pc값, register `$0`\~`$31`값들과 함께 메모리 주소 범위(`addr1`\~`addr2`)에 있는 내용들도 출력한다. user text segment(0x00400000부터 시작) 및 data segment(0x10000000부터 시작)의 데이터를 읽어올 수 있으며, 각 주소에 할당 되지 않은 값들은 `0x0`을 출력한다. `-m` 미설정시에는 메모리 내용 없이 pc값과 register 값들만 출력된다. `addr1`와 `addr2`는 기본값이 없으므로 `-m `설정을 위해선 반드시 지정되어야 한다.
 - `-d` : 설정시 각 instruction의 실행이 종료될 때 마다 register의 내용이 출력되고,  `-d` 미설정시에는 모든 instruction의 실행이 종료된 후 register가 출력이 된다. `-m` 옵션이 활성화 된 경우 register 출력시 지정된 memory 범위의 내용들도 함께 출력된다.
 - `-n` : 설정시 실행가능한 최대 `num_instr`개의 instruction이 순서대로 실행이 된다. `-n` 미설정시에는 현재 pc값이 가르키는 instruction이 없을때까지 실행된다. `num_instr`는 기본값이 없으므로 `-n `설정을 위해선 반드시 음이 아닌 정수로 지정되어야 한다. `num_instr`가 0이면 instruction이 실행되지 않은 초기 설정이 출력이 되고, 0보다 작다면 `ValueError`가 raise된다.
 
