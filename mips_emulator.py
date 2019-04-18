@@ -148,6 +148,7 @@ class MipsEmulator : # This emulator is based on single cycle design
         else :
             return self._two_s_complement_int(-1*dec,bin_length)
 
+    # sign extention from 16 to 32 bit can be done with bin_length=16
     def _signed_int(self,bin_int,bin_length=32): # 2s-complementary binary int (0x0~) -> decimal int (-inf~inf)
         bin_str = f'{bin_int:0>{bin_length}b}'
         return int(bin_str[1:],2) - int(bin_str[0])*(2**(bin_length-1))
@@ -159,6 +160,7 @@ class MipsEmulator : # This emulator is based on single cycle design
         self.register[int(rt,2)] = (self.register[int(rs,2)] + int(imm,2) )%0x100000000
         # self.register[int(rt,2)] = (self.register[int(rs,2)] + self._signed_bin(self._signed_int(int(imm,2),16),32))%0x100000000 # this is also possible
     def _andi(self,rs,rt,imm):
+        imm = imm[0]*16 + imm # sign extended
         self.register[int(rt,2)] = self.register[int(rs,2)] & int(imm,2)
     def _beq(self,rs,rt,offset): # offset = beq 다음 pc랑 lable의 pc의 차이 = -inf~inf
         if self.register[int(rs,2)] == self.register[int(rt,2)] :
@@ -167,12 +169,15 @@ class MipsEmulator : # This emulator is based on single cycle design
         if self.register[int(rs,2)] != self.register[int(rt,2)] :
             self.pc = self._signed_int(int(offset,2),16)*4 + self.pc
     def _lui(self,rs,rt,imm): # load upper immediate
+        # imm = imm[0]*16 + imm # sign extended
         self.register[int(rt,2)] = int(imm,2)<<16
     def _lw(self,rs,rt,offset):
         self.register[int(rt,2)] = self.memory[self.register[int(rs,2)]+self._signed_int(int(offset,2),16)]
     def _ori(self,rs,rt,imm): # bitwise or immediate
+        imm = imm[0]*16 + imm # sign extended
         self.register[int(rt,2)] = self.register[int(rs,2)] | int(imm,2)
     def _sltiu(self,rs,rt,imm): # unsigned니까 : -1(0xffffffff) > 1(0x00000001) 처리가 되야함
+        imm = imm[0]*16 + imm # sign extended
         self.register[int(rt,2)] = 1 if self.register[int(rs,2)] < int(imm,2) else 0
     def _sw(self,rs,rt,offset):
         self.memory[self.register[int(rs,2)]+self._signed_int(int(offset,2),16)] = self.register[int(rt,2)]
