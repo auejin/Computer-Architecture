@@ -5,9 +5,15 @@ All project is developed and tested on Ubuntu 18.04.1 LTS of Windows Subsystem f
 
 Please check out `*.md` file of each project to see how to use.
 
-All projects are listed as follows.
 
-[TOC]
+
+All projects are listed as follows :
+
+* [MIPS Assembler](#MIPS-Assembler)
+* [MIPS Emulator](#MIPS-Emulator)
+
+
+
 
 ## MIPS Assembler
 
