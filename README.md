@@ -1,5 +1,5 @@
 # Computer Architecture
-This repo contains 4 projects made for Introduction to Computer Architecture (SE379), DGIST.
+This repo contains 4 projects made for *Introduction to Computer Architecture (SE379), DGIST*.
 
 All project is developed and tested on Ubuntu 18.04.1 LTS of Windows Subsystem for Linux.
 
