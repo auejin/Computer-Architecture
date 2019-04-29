@@ -1,5 +1,5 @@
 # Computer Architecture
-This repo contains 4 projects made for *Introduction to Computer Architecture (SE379), DGIST*.
+This repo contains 4 projects made for *Introduction to Computer Architecture (SE379), DGIST.*
 
 Every project is developed and tested on Ubuntu 18.04.1 LTS of Windows Subsystem for Linux.
 
@@ -17,9 +17,9 @@ All projects are listed as follows :
 
 ## MIPS Assembler
 
-**[Full README](https://github.com/auejin/Computer-Architecture/blob/master/mips_assembler.md)**
+**How to use : [Full README](https://github.com/auejin/Computer-Architecture/blob/master/mips_assembler.md)**
 
-**[mips_assembler.py](https://github.com/auejin/Computer-Architecture/blob/master/mips_assembler.py)**
+**Source code : [mips_assembler.py](https://github.com/auejin/Computer-Architecture/blob/master/mips_assembler.py)**
 
 This project is MIPS ISA assembler which compiles MIPS assembly code into binary or hexadecimal code.
 
@@ -36,13 +36,15 @@ self.instructions = [['addiu', '$2', '$0', '1024'], ['addu', '$3', '$2', '$2'], 
 
 ## MIPS Emulator
 
-**[Full README](https://github.com/auejin/Computer-Architecture/blob/master/mips_emulator.md)**
+**How to use : [Full README](https://github.com/auejin/Computer-Architecture/blob/master/mips_emulator.md)**
 
-**[mips_emulator.py](https://github.com/auejin/Computer-Architecture/blob/master/mips_emulator.py)**
+**Source code : [mips_emulator.py](https://github.com/auejin/Computer-Architecture/blob/master/mips_emulator.py)**
 
 This project is an MIPS emulator simulating the execution of MIPS ISA using the MIPS binary code made from MIPS Assembler (upper project). The structure is based on single cycle design, and loader does not create stack area.
 
-Bash code written below prints out the executed result (register values and memory content) of `sample.o` of MIPS ISA. The result can be printed out whenever each instruction is executed with custom options.
+The results shows register values after all instructions are executed. Memory contents can be printed if option `-m` is used. Option `-d` can be used to to print out results as register values and memory contents whenever each instruction is executed. Option `-n` can be used to limit the number of instructions to be executed, which is useful for infinite loops.
+
+Bash code written below prints out the executed result (register values and memory content) of `sample.o` of MIPS ISA.
 
 ```bash
 $ python3 mips_emulator.py -m 0x10000000:0x10000010 sample.o
