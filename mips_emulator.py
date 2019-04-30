@@ -56,11 +56,11 @@ class MipsEmulator : # This emulator is based on single cycle design
     def run_files(self,fixed_print_length=False): 
         self.pc = 0x00400000        
         try:
-            i = -1
+            i = 0 # start to print when pc=0x400004 
             while (self._instruction_limited and i<self._num_instruction) or (not self._instruction_limited) :
-                if self.print_for_each_instr or (self._instruction_limited and i+1==self._num_instruction)  :
-                    self._print_info(fixed_print_length)
                 self._exec_instr_of_pc(self.pc) # break when KeyError
+                if self.print_for_each_instr or (self._instruction_limited and i+1==self._num_instruction)   :
+                    self._print_info(fixed_print_length)
                 i += 1
                 
         except KeyError : # -n에 과다하게 온 경우, jump to exit인경우
@@ -249,12 +249,12 @@ if __name__ == "__main__":
     # $ python3 ./mips_emulator.py -m 0x10000000:0x10000010 sample.o
 
     # test for -n & -d
-    # $ python3 ./mips_emulator.py -n 0 sample.o # PC : 0x400000만 출력
-    # $ python3 ./mips_emulator.py -n 0 -d sample.o # PC : 0x400000만 출력
-    # $ python3 ./mips_emulator.py -n 1 sample.o # PC : 0x400004만 출력
-    # $ python3 ./mips_emulator.py -n 1 -d sample.o # PC : 0x400000~0x400004
-    # $ python3 ./mips_emulator.py -n 100 sample.o # 전부 실행후 마지막만 출력
-    # $ python3 ./mips_emulator.py sample.o # 전부 실행후 마지막만 출력
-    # $ python3 ./mips_emulator.py -n 100 -d sample.o # 전부 출력
-    # $ python3 ./mips_emulator.py -d sample.o # 전부 출력
+    # $ python3 ./mips_emulator.py -n 0 sample.o         # 출력 안함
+    # $ python3 ./mips_emulator.py -n 0 -d sample.o      # 출력 안함
+    # $ python3 ./mips_emulator.py -n 1 sample.o         # 0x400004만 출력
+    # $ python3 ./mips_emulator.py -n 1 -d sample.o      # 0x400004만 출력
+    # $ python3 ./mips_emulator.py -n 100 sample.o       # 0x400048만 출력 
+    # $ python3 ./mips_emulator.py sample.o              # 0x400048만 출력
+    # $ python3 ./mips_emulator.py -n 100 -d sample.o    # 0x400004~0x400048
+    # $ python3 ./mips_emulator.py -d sample.o           # 0x400004~0x400048
     
