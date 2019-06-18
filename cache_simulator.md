@@ -84,7 +84,7 @@ Checksum: 0x3c8075
 
 32B의 block size를 갖고 있는 4-way set associative cache에서 4~1024KB의 범위 내에서 cache size를 변화하였을 때 여섯개의 워크로드를 실행한 결과는 아래와 같다.
 
-![c_tot](C:\Users\Auejin\Desktop\ThisSemester\ComputerArchitecture\hw4\img\c_tot.png)
+![c_tot](.\img\c_tot.png)
 
 Capacity가 늘어남에 따라 miss rate는 감소하는 것이 맞다. 그러나 워크로드에 따라 감소하는 폭(기울기)에 있어 그 차이를 보인다. 400, 453, 473의 경우 매우 큰 폭으로 miss rate가 감소하는 반면, 나머지는 거의 변화가 없다. Cache의 용량에 따라 miss율이 매우 크게 감소하는 워크로드의 경우 working set(접근하는 데이터의 범위) 가 매우 크다는 것을 암시할 수 있다. 거의 0으로 수렴하는 경우 cache가 working set을 모두 포함한다는 것이다. 반면, cache의 용량 대비 miss 감소가 크지 않은 워크로드는 애초에 working set의 크기가 작기 때문이라는 것을 예측할 수 있다. 예를 들어, 462의 경우에는 변화가 존재하지 않는데, 이는 working set의 양이 극단적으로 적기 때무에 좁은 영역의 데이터를 지속적으로 접근하는 워크로드임을 유추할 수 있다.
 
@@ -94,7 +94,7 @@ Capacity가 늘어남에 따라 miss rate는 감소하는 것이 맞다. 그러�
 
 32B의 block size와 32KB의 data를 저장할 수 있는 cache에서 associativity를 1~8로 바꿀때 여섯개의 워크로드를 실행한 결과는 아래와 같다.
 
-![a_tot](C:\Users\Auejin\Desktop\ThisSemester\ComputerArchitecture\hw4\img\a_tot.png)
+![a_tot](.\img\a_tot.png)
 
 본 과제에서 구현한 Set Associative 구조의 cache는 여러 way 중 non-valid entry를 가능한 업데이트 하며, 모든 way가 valid한 경우 LRU의 규칙에 따라 가장 오래 동안 사용하지 않은 way의 block에 대해 eviction을 실행한다. 그러므로, associativity(way의 갯수)가 클 수록 eviction을 감소시킬 수 있다.
 
@@ -108,7 +108,7 @@ Capacity가 늘어남에 따라 miss rate는 감소하는 것이 맞다. 그러�
 
 32KB의 data를 저장할 수 있는 4-way set associative cache에서 16~128B의 범위 내에서 block size를 변화하였을 때 여섯개의 워크로드를 실행한 결과는 아래와 같다.
 
-![b_tot](C:\Users\Auejin\Desktop\ThisSemester\ComputerArchitecture\hw4\img\b_tot.png)
+![b_tot](.\img\b_tot.png)
 
 Block size가 커진다면 spatial locality에 대한 이득을 크게 볼 수 있다. 그러나 cache size가 고정된 경우 block size가 커짐에 따라 set의 갯수(한 way에 있어 block의 수)는 감소하게 되어 오히려 conflict가 발생할 가능성을 늘린다. 여기서는 고려되지 않지만 block size에 따라 miss시 main memory로부터 불러오는 양이 크므로 miss penalty도 같이 커지게 된다.
 
