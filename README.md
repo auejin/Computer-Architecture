@@ -107,7 +107,7 @@ Memory content [0x10000000..0x10000010] :
 
 This project is a single-level cache simulator using LRU(least recently used) as a block eviction policy. Since this cache simulator uses write-back as a cache-write policy, this cache contains dirty bit as a way to indicate the need of memory access.
 
-Full README contains the analysis of the effect on Miss Rate within the change of Cache Size(`-c`), Block Size(`-b`), Associativity(`-a`). There are six trace files used for the analysis (`400_perlbench`, `450_soplex`, `453_povray`, `462_libquantum`, `473_astar`, `483_xalancbmk`).
+Full README contains the analysis of the effect on Miss Rate within the change of Cache Size(`-c`), Block Size(`-b`), Associativity(`-a`). There are six trace files as benchmarks used for the analysis (`400_perlbench`, `450_soplex`, `453_povray`, `462_libquantum`, `473_astar`, `483_xalancbmk`).
 
 Bash code written below saves the executed result of the trace file as an `.out` file and prints out the results on the bash.
 
