@@ -11,6 +11,7 @@ All projects are listed as follows :
 
 * [MIPS Assembler](#MIPS-Assembler)
 * [MIPS Emulator](#MIPS-Emulator)
+* [Single-level Cache Simulator](#Single-level-Cache-Simulator)
 
 
 
