@@ -96,3 +96,35 @@ Memory content [0x10000000..0x10000010] :
 
 ```
 
+
+
+## Single-level Cache Simulator
+
+**How to use : [Full README](https://github.com/auejin/Computer-Architecture/blob/master/cache_simulator.md)**
+
+**Source code : [mips_emulator.py](https://github.com/auejin/Computer-Architecture/blob/master/cache_simulator.py)**
+
+This project is a single-level cache simulator using LRU(least recently used) as a block eviction policy. Since this cache simulator uses write-back as a cache-write policy, this cache contains dirty bit as a way to indicate the need of memory access.
+
+Full README contains the analysis of the effect on Miss Rate within the change of Cache Size(`-c`), Block Size(`-b`), Associativity(`-a`). There are six trace files used for the analysis (`400_perlbench`, `450_soplex`, `453_povray`, `462_libquantum`, `473_astar`, `483_xalancbmk`).
+
+Bash code written below saves the executed result of the trace file as an `.out` file and prints out the results on the bash.
+
+```bash
+$ python3 ./cache_simulator.py -c 32 -a 4 -b 32 453_povray.out
+-- General Stats --
+Capacity: 32
+Way: 4
+Block size: 32
+Total accesses: 20000001
+Read accesses: 13743231
+Write accesses: 6256770
+Read misses: 302566
+Write misses: 46857
+Read miss rate: 2.2015638098493726%
+Write miss rate: 0.7489007906635532%
+Clean evictions: 279132
+Dirty evictions: 69518
+Checksum: 0x3c8075
+
+```
