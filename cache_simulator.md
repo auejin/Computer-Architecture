@@ -118,4 +118,4 @@ Block size가 커진다면 spatial locality에 대한 이득을 크게 볼 수 �
 
 ## Acknowledgements
 
-Cache에 대해 많은 지식을 알려준 DGIST 기초학부 17학번 하현욱, 윤형근, 이승민에게 감사의 말씀을 드립니다.
+Cache에 대해 많은 지식을 알려준 DGIST 기초학부 17학번 하현욱, 윤형근, 이승민과 [💵 캐시가 동작하는 아주 구체적인 원리](https://parksb.github.io/article/29.html)를 작성해주신 박성범씨에게 감사의 말씀을 드립니다.
