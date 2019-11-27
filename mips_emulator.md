@@ -86,3 +86,8 @@ Memory content [0x10000000..0x10000010] :
 
 
 ```
+
+
+## Acknowledgements
+
+[🤖 컴퓨터가 코드를 읽는 아주 구체적인 원리](https://parksb.github.io/article/25.html)를 정리해주신 박성범씨에게 감사의 인사를 드립니다.
